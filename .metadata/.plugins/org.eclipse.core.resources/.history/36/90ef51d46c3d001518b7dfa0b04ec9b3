@@ -1,0 +1,18 @@
+import javax.swing.JFrame;
+
+
+public class FortuneCookie {
+	public static void main(String[]args){
+		FortuneCookie fortune = new FortuneCookie();
+		fortune.showButton();
+		JFrame frame = new JFrame();
+		JFrame.setVisible(true);
+		JButton cookie = new JButton();
+		JFrame.add(cookie);
+	}
+
+	private void showButton() {
+		
+		
+	}
+}
