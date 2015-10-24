@@ -32,8 +32,6 @@ public class BinaryConverter implements ActionListener {
 		convert.createUI();
 
 	}
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(convert(answer.getText()));
 		

@@ -36,7 +36,6 @@ public class PigLatinConverter implements ActionListener {
 		translator.createUI();
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		//System.out.println(answer.getText());
 		PigLatinTranslator translator = new PigLatinTranslator();

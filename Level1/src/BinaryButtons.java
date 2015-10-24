@@ -67,7 +67,6 @@ public class BinaryButtons implements ActionListener {
 
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton clickedButton = (JButton) e.getSource();
 

@@ -57,7 +57,6 @@ public class CutenessTV implements ActionListener {
 		}
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton button4 = (JButton) e.getSource();
 		if (button1 == button4) {
