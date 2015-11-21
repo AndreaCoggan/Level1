@@ -10,14 +10,16 @@ public class Whackamole implements ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	int numofButtons = 24;
-
+	int ctr = 0;
+	int ctr2 = 0;
 	public static void main(String[] args) {
 		new Whackamole().createUI();
 
 	}
 
 	void createUI() {
-
+		frame = new JFrame();
+		panel = new JPanel();
 		frame.setVisible(true);
 		frame.setSize(300, 300);
 		frame.add(panel);
@@ -43,17 +45,30 @@ public class Whackamole implements ActionListener {
 		if (chosenText == "mole") {
 			speak("mole");
 			frame.dispose();
-			
-		}
-		else
+			createUI();
+			ctr2++;
+
+		} else {
 			speak("miss");
-	
+			ctr++;
+			ctr2++;
+		}
+		if (ctr == 5) {
+			ctr = 0;
+			frame.dispose();
+			createUI();
+		}
+		if (ctr2 == 10){
+			System.exit(0);
+		}
+
 	}
+
 	void speak(String words) {
 		try {
-		Runtime.getRuntime().exec("say " + words).waitFor();
+			Runtime.getRuntime().exec("say " + words).waitFor();
 		} catch (Exception e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
-		}
+	}
 }
