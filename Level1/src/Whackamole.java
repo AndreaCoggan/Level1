@@ -12,6 +12,7 @@ public class Whackamole implements ActionListener {
 	int numofButtons = 24;
 	int ctr = 0;
 	int ctr2 = 0;
+
 	public static void main(String[] args) {
 		new Whackamole().createUI();
 
@@ -58,9 +59,9 @@ public class Whackamole implements ActionListener {
 			frame.dispose();
 			createUI();
 		}
-		if (ctr2 == 10){
-			System.exit(0);
-		}
+		// if (ctr2 == 10){
+		// System.exit(0);
+		// }
 
 	}
 
