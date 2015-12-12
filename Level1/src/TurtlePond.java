@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import org.teachingextensions.logo.Paintable;
 import org.teachingextensions.logo.PenColors;
 import org.teachingextensions.logo.Tortoise;
+import org.teachingextensions.logo.Turtle.Animals;
 
 public class TurtlePond implements KeyEventDispatcher {
 
@@ -30,7 +31,8 @@ public class TurtlePond implements KeyEventDispatcher {
 				"Move the turtle with the arrow keys to find the hidden cookie.\nYou'll get warmer the closer you get.\n\nHurry or she'll die of hunger!");
 
 		// 4. For debugging purposes, show the cookie. The user won’t see this.
-		showCookie();
+		//showCookie();
+		Tortoise.setAnimal(Animals.Unicorn);
 	}
 
 	private void goUp() {
@@ -59,33 +61,39 @@ public class TurtlePond implements KeyEventDispatcher {
 		int tortoiseLocationX = Tortoise.getX();
 		int tortoiseLocationY = Tortoise.getY();
 
-		// 7. If the Tortoise is within 100 pixels of the food, set the background color to yellow
+		// 7. If the Tortoise is within 100 pixels of the food, set the
+		// background color to yellow
 		if (Math.abs(tortoiseLocationX - cookieX) < 100 && Math.abs(tortoiseLocationY - cookieX) < 100) {
-			setBackgroundColor(Color.YELLOW);
+			setBackgroundColor(Color.PINK);
 		}
-		// 8. If the Tortoise is within 50 pixels of the food, set the background color to orange
+		// 8. If the Tortoise is within 50 pixels of the food, set the
+		// background color to orange
 		if (Math.abs(tortoiseLocationX - cookieX) < 50 && Math.abs(tortoiseLocationY - cookieX) < 50) {
-			setBackgroundColor(Color.ORANGE);
+			setBackgroundColor(Color.CYAN);
 		}
-		// 9. If the Tortoise is within 20 pixels of the food, set the background color to red
+		// 9. If the Tortoise is within 20 pixels of the food, set the
+		// background color to red
 		if (Math.abs(tortoiseLocationX - cookieX) < 20 && Math.abs(tortoiseLocationY - cookieX) < 20) {
-			setBackgroundColor(Color.RED);
+			setBackgroundColor(Color.MAGENTA);
 		}
-		// 10. If the Tortoise is within 5 pixels of the cookie, make a pop-up to tell them they found it
+		// 10. If the Tortoise is within 5 pixels of the cookie, make a pop-up
+		// to tell them they found it
 		if (Math.abs(tortoiseLocationX - cookieX) < 5 && Math.abs(tortoiseLocationY - cookieX) < 5) {
 			JOptionPane.showMessageDialog(null, "You found it!");
 		}
 
-		// 11. If more than 20 seconds have elapsed, tell them the turtle died of hunger!
+		// 11. If more than 20 seconds have elapsed, tell them the turtle died
+		// of hunger!
 		if (getTimeElapsed() > 30) {
 			JOptionPane.showMessageDialog(null, "The tortoise died of hunger :-/ ");
+			Tortoise.explode();
 		}
-		// 12. If the Tortoise crosses it's own path, tell them they failed and move them back to the beginning
+		// 12. If the Tortoise crosses it's own path, tell them they failed and
+		// move them back to the beginning
 		if (wasHereBefore(tortoiseLocationX, tortoiseLocationY)) {
 			JOptionPane.showMessageDialog(null, "Youve been here before, go back to the beginning!");
 			Point point = getFirstLocation();
 			Tortoise.clear();
-			showCookie();
 			clearPosition();
 			Tortoise.setX(point.x);
 			Tortoise.setY(point.y);
@@ -120,14 +128,9 @@ public class TurtlePond implements KeyEventDispatcher {
 		return previousLocations.get(0);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	/*********************** don't worry about the stuff under here ******************/
+	/***********************
+	 * don't worry about the stuff under here
+	 ******************/
 
 	Date startTime = new Date();
 
@@ -173,7 +176,8 @@ public class TurtlePond implements KeyEventDispatcher {
 	private void savePosition(int xPosition, int yPosition) {
 		previousLocations.add(new Point(xPosition, yPosition));
 	}
-	private void clearPosition(){
+
+	private void clearPosition() {
 		previousLocations.clear();
 	}
 }
