@@ -10,28 +10,32 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TrickOrTreat {
+public class TrickOrTreat implements ActionListener {
+	JButton trickButton= new JButton("Trick");
+	JButton treatButton = new JButton("Treat");
 	public static void main(String[] args) {
 		TrickOrTreat trickortreat = new TrickOrTreat();
 		trickortreat.createUI();
 	}
 	void createUI(){
 		JFrame frame = new JFrame();
-		JButton button1 = new JButton("Trick");
-		JButton button2 = new JButton("Treat");
 		frame.setVisible(true);
 		JPanel panel = new JPanel();
 		frame.setSize(400, 100);
 		frame.add(panel);
-		button1.addActionListener((ActionListener) this);
-		button2.addActionListener((ActionListener) this);
-		panel.add(button1);
-		panel.add(button2);
+		trickButton.addActionListener(this);
+		treatButton.addActionListener(this);
+		panel.add(trickButton);
+		panel.add(treatButton);
+		System.out.println("hi");
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton button3 = (JButton) e.getSource();
-		if(button1 == button3){
-			
+		if(trickButton == button3){
+			showPictureFromTheInternet("https://i.ytimg.com/vi/hHjGtBnSv50/maxresdefault.jpg");
+		}
+		else if (treatButton == button3){
+			showPictureFromTheInternet("https://c1.staticflickr.com/9/8010/7302668928_49be120251_z.jpg");
 		}
 	}
 
