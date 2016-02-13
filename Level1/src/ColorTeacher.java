@@ -10,23 +10,10 @@ import javax.swing.JPanel;
 public class ColorTeacher {
 		
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		JLabel label = new JLabel();
-		label.setText("Color Teacher");
-		label.add(panel);
-		frame.setVisible(true);
-		panel.add(frame);
-		frame.pack();
-		frame.setSize(100, 200);
 		JButton button1 = new JButton();
 		JButton button2 = new JButton();
 		JButton button3 = new JButton();
 		JButton button4 = new JButton();
-		button1.add(panel);
-		button2.add(panel);
-		button3.add(panel);
-		button4.add(panel);
 		button1.setBackground(Color.YELLOW);
 		button1.setOpaque(true);
 		button2.setBackground(Color.RED);
@@ -39,6 +26,18 @@ public class ColorTeacher {
 		button2.addActionListener(null);
 		button3.addActionListener(null);
 		button4.addActionListener(null);
+	}
+	public void createUI(){
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel();
+		label.setText("Color Teacher");
+		label.add(panel);
+		frame.setVisible(true);
+		panel.add(frame);
+		frame.pack();
+		frame.setSize(100, 200);
+		
 	}
 	void speak(String words){
 		try{
