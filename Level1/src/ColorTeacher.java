@@ -35,7 +35,10 @@ public class ColorTeacher {
 		button3.setOpaque(true);
 		button4.setBackground(Color.GREEN);
 		button4.setOpaque(true);
-	
+		button1.addActionListener(null);
+		button2.addActionListener(null);
+		button3.addActionListener(null);
+		button4.addActionListener(null);
 	}
 	void speak(String words){
 		try{
