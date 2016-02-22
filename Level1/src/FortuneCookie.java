@@ -1,20 +1,31 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class FortuneCookie {
-	public static void main(String[] args) {
-		FortuneCookie fortune = new FortuneCookie();
+public class FortuneCookie implements ActionListener{
+	JButton cookie;
+	JPanel panel;
+	JFrame frame;
+	public static void main(String[]args){
+		Cookie fortune = new Cookie();
 		fortune.showButton();
-
 	}
-
-	private void showButton() {
-		JFrame frame = new JFrame();
+	public void showButton(){
+		frame = new JFrame();
 		frame.setVisible(true);
-		JButton cookie = new JButton();
+		cookie = new JButton();
 		frame.add(cookie);
-		JPanel panel = new JPanel();
-
+		panel = new JPanel();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(cookie == e.getSource()){
+			System.out.println("woohoo");
+		}
+		
 	}
 }
